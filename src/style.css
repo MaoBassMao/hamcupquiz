@@ -1,0 +1,171 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+#app-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 700px; /* 少し幅を広げる */
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+h2 { margin-top: 1.5em; margin-bottom: 0.5em; }
+h3 { margin-top: 1em; margin-bottom: 0.3em; font-size: 1.1em; }
+
+/* スクリーン表示制御 */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ボタン共通 */
+button {
+    display: inline-block;
+    padding: 10px 15px; /* 少し左右パディング調整 */
+    margin: 8px 5px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em; /* 少し調整 */
+    transition: background-color 0.3s;
+    vertical-align: middle;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+button:hover:not(:disabled) { opacity: 0.85; }
+
+/* スタート画面ボタン */
+#start-screen .mode-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+#start-screen .mode-section:last-of-type {
+     border-bottom: none;
+}
+
+#start-practice-sequential-btn,
+#start-practice-random-btn { background-color: #5cb85c; } /* Green */
+.main-quiz-btn { background-color: #f0ad4e; } /* Orange */
+#start-timeattack-btn { background-color: #d9534f; } /* Red */
+#restart-btn { background-color: #5bc0de; } /* Light Blue */
+#next-question-btn { background-color: #337ab7; } /* Blue */
+#back-to-start-btn { background-color: #777; margin-left: 10px; } /* Gray */
+
+/* ハイスコア表示エリア */
+#high-scores-area {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    text-align: left;
+}
+#high-scores-area h2 { text-align: center; margin-bottom: 15px; }
+.highscore-category { margin-bottom: 15px; }
+.highscore-category h3 {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #555;
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 3px;
+}
+.highscore-category ol {
+    list-style-type: decimal;
+    padding-left: 25px;
+    margin: 0;
+    font-size: 0.9em;
+}
+.highscore-category li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.highscore-category li .score-name { font-weight: bold; }
+.highscore-category li .score-details { color: #666; font-size: 0.9em; margin-left: 5px;}
+
+
+/* クイズ画面レイアウト */
+#quiz-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; }
+#question-area { margin-bottom: 20px; }
+#quiz-image { max-width: 150px; height: auto; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; background-color: #eee; min-height: 50px; display: block; margin-left: auto; margin-right: auto; }
+#answer-options button { display: block; width: 80%; margin: 8px auto; background-color: #f7f7f7; color: #333; border: 1px solid #ccc; }
+#answer-options button:hover:not(:disabled) { background-color: #e7e7e7; opacity: 1; }
+#answer-options button.correct { background-color: #dff0d8; border-color: #d6e9c6; color: #3c763d; }
+#answer-options button.incorrect { background-color: #f2dede; border-color: #ebccd1; color: #a94442; }
+#answer-options button.disabled { pointer-events: none; opacity: 0.7; }
+#feedback-area { margin-top: 15px; min-height: 50px; }
+#feedback-text { font-weight: bold; }
+#feedback-text.correct { color: green; }
+#feedback-text.incorrect { color: red; }
+#info-image { max-width: 80%; margin-top: 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #f9f9f9; display: none; /* Initially hidden */ margin-left: auto; margin-right: auto; }
+.quiz-footer-buttons { margin-top: 20px; }
+#next-question-btn { display: none; /* Initially hidden */ }
+
+
+/* 結果画面 */
+#results-details ul { list-style: none; padding: 0; text-align: left; }
+#results-details li { background-color: #f9f9f9; margin-bottom: 10px; padding: 10px; border: 1px solid #eee; border-radius: 4px; }
+#results-details li span { display: block; margin-bottom: 4px; }
+#results-details li span:last-child { margin-bottom: 0; }
+#results-details li .user-answer.incorrect { color: red; text-decoration: line-through; }
+#results-details li .correct-answer { color: green; font-weight: bold; }
+#results-details li img { max-width: 60px; margin-top: 5px; display: block; border: 1px solid #eee; }
+
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    body { padding: 10px; }
+    #app-container { padding: 15px; }
+    button { padding: 8px 12px; font-size: 0.9em; } /* ボタン少し小さく */
+    #start-screen button { /* スタート画面ボタン縦積み */
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+    #answer-options button { width: 95%; }
+    .quiz-footer-buttons button { display: block; margin: 10px auto; width: 60%; }
+    #back-to-start-btn { margin-left: 0; }
+    #high-scores-area { font-size: 0.9em; }
+    .highscore-category ol { padding-left: 20px; }
+}
+
+/* キャラ別練習ボタンのスタイル */
+
+/* ボタンが無効な時のスタイル (既にあるかもしれないが見直し) */
+#start-practice-character-sequential-btn:disabled,
+#start-practice-character-random-btn:disabled {
+    background-color: #cccccc; /* 背景を薄い灰色に */
+    color: #666666;      /* 文字色を濃い灰色に */
+    cursor: not-allowed; /* カーソルを変える */
+    opacity: 0.6;        /* 少し透明にする */
+    /* 他の既存の disabled スタイルがあれば、それを調整してもOK */
+}
+
+/* ↓↓↓ ボタンが有効な時のスタイルを追加 ↓↓↓ */
+#start-practice-character-sequential-btn:not(:disabled),
+#start-practice-character-random-btn:not(:disabled) {
+    background-color: #4CAF50; /* 背景を緑色に (例) */
+    color: white;            /* 文字色を白に (例) */
+    cursor: pointer;         /* カーソルを指マークに */
+    opacity: 1.0;            /* 不透明にする */
+    /* 必要なら他のスタイル (ボーダーなど) も追加 */
+}
+
+/* ↓↓↓ (任意) ボタンが有効な時にマウスを乗せた時のスタイル ↓↓↓ */
+#start-practice-character-sequential-btn:not(:disabled):hover,
+#start-practice-character-random-btn:not(:disabled):hover {
+    background-color: #45a049; /* 少し濃い緑色に (例) */
+}

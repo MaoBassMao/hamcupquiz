@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HamCup クイズ練習</title>
+      <script type="module" crossorigin src="/HamCupQuizApp1/assets/index-Oo_gjdL0.js"></script>
+      <link rel="stylesheet" crossorigin href="/HamCupQuizApp1/assets/index-EGG1uE8V.css">
+    </head>
+<body>
+
+    <div id="app-container">
+
+        <div id="start-screen" class="screen active">
+            <h1>HamCup クイズ</h1>
+            <div class="mode-section">
+                <h2>練習モード</h2>
+                <button id="start-practice-sequential-btn" disabled>順番に出題 (読込中...)</button>
+                <button id="start-practice-random-btn" disabled>ランダム出題 (読込中...)</button>
+            </div>
+
+            <div class="mode-section">
+                <h2>キャラ別練習</h2>
+                <div>
+                    <label for="character-select">キャラクター選択:</label>
+                    <select name="characters" id="character-select">
+                        <option value="">--選択してください--</option>
+                        </select>
+                </div>
+                <button id="start-practice-character-sequential-btn" disabled>このキャラで練習 (順番)</button>
+                <button id="start-practice-character-random-btn" disabled>このキャラで練習 (ランダム)</button>
+            </div>
+            
+            <div class="mode-section"> <h2>本番クイズ (問題数選択)</h2>
+                <button class="main-quiz-btn" id="start-main-10-btn" data-questions="10" disabled>10問</button>
+                <button class="main-quiz-btn" id="start-main-30-btn" data-questions="30" disabled>30問</button>
+                <button class="main-quiz-btn" id="start-main-50-btn" data-questions="50" disabled>50問</button>
+                <button class="main-quiz-btn" id="start-main-100-btn" data-questions="100" disabled>100問</button>
+                <button class="main-quiz-btn" id="start-main-350-btn" data-questions="350" disabled>350問</button>
+            </div>
+
+
+            <div class="mode-section">
+                <h2>本番クイズ (問題数選択)</h2>
+                <button class="main-quiz-btn" id="start-main-10-btn" data-questions="10" disabled>10問</button>
+                <button class="main-quiz-btn" id="start-main-30-btn" data-questions="30" disabled>30問</button>
+                <button class="main-quiz-btn" id="start-main-50-btn" data-questions="50" disabled>50問</button>
+                <button class="main-quiz-btn" id="start-main-100-btn" data-questions="100" disabled>100問</button>
+                <button class="main-quiz-btn" id="start-main-350-btn" data-questions="350" disabled>350問</button>
+            </div>
+
+            <div class="mode-section">
+                <h2>タイムアタック (2分)</h2>
+                <button id="start-timeattack-btn" data-time="120" disabled>挑戦！ (読込中...)</button>
+            </div>
+
+            <div id="high-scores-area">
+                <h2>ハイスコア Top 3</h2>
+                </div>
+            </div>
+
+        <div id="quiz-screen" class="screen">
+            <div id="quiz-header">
+                <span id="question-counter"></span>
+                <span id="timer"></span>
+            </div>
+            <div id="question-area">
+                <img id="quiz-image" src="" alt="HamCup Image">
+                <p id="question-text"></p>
+                <div id="answer-options">
+                    </div>
+            </div>
+            <div id="feedback-area">
+                 <p id="feedback-text"></p>
+                 <img id="info-image" src="" alt="HamCup Info Image">
+            </div>
+            <div class="quiz-footer-buttons">
+                <button id="next-question-btn">次の問題へ</button>
+                <button id="back-to-start-btn">トップに戻る</button>
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen">
+            <h2>クイズ結果</h2>
+            <p id="score"></p>
+            <p id="time-taken"></p>
+            <div id="results-details">
+                </div>
+            <button id="restart-btn">スタート画面に戻る</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
